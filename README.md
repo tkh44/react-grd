@@ -4,9 +4,9 @@
 [![npm package][npm-badge]][npm]
 [![Coveralls][coveralls-badge]][coveralls]
 
-React components based on (grd)[http://1000ch.github.io/grd/logo.png]
+React components based on [grd](http://1000ch.github.io/grd/logo.png)
 
-####-- WIP --
+ WIP
 
 [build-badge]: https://img.shields.io/travis/user/repo/master.svg?style=flat-square
 [build]: https://travis-ci.org/user/repo
