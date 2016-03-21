@@ -14,7 +14,8 @@
     "clean": "nwb clean",
     "start": "nwb serve",
     "test": "nwb test",
-    "test:watch": "nwb test --server"
+    "test:watch": "nwb test --server",
+    "deploy:demo": "git subtree push --prefix ./demo/dist origin gh-pages"
   },
   "dependencies": {},
   "peerDependencies": {
