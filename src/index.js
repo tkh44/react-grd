@@ -1,39 +1,49 @@
 import { DOM, PropTypes } from 'react';
 
+
 const { div } = DOM;
+const merge = (...args) => Object.assign({}, ...args);
 
-
-const gridModifiers = {
-    top:      { alignItems: 'flex-start' },
-    middle:   { alignItems: 'center' },
-    bottom:   { alignItems: 'flex-end' },
-    stretch:  { alignItems: 'stretch' },
-    baseline: { alignItems: 'baseline' },
-    left:     { justifyContent: 'flex-start' },
-    center:   { justifyContent: 'center' },
-    right:    { justifyContent: 'flex-end' },
-    between:  { justifyContent: 'space-between' },
-    around:   { justifyContent: 'space-around' }
+const gridStyles = {
+    base: {
+        display: 'flex',
+        flexWrap: 'wrap'
+    },
+    align: {
+        top:      { alignItems: 'flex-start' },
+        middle:   { alignItems: 'center' },
+        bottom:   { alignItems: 'flex-end' },
+        stretch:  { alignItems: 'stretch' },
+        baseline: { alignItems: 'baseline' }
+    },
+    justify: {
+        left:     { justifyContent: 'flex-start' },
+        center:   { justifyContent: 'center' },
+        right:    { justifyContent: 'flex-end' },
+        between:  { justifyContent: 'space-between' },
+        around:   { justifyContent: 'space-around' }
+    }
 };
 
 export const Grid = (props) => {
 
-    const styles = Object.assign(
-        {},
-        props.style,
-        { display: 'flex', flexWrap: 'wrap' },
-        gridModifiers[props.grid]
-    );
-
-    return div({ style: styles }, props.children);
+    const styles = merge(gridStyles.base, gridStyles.justify[props.justify], gridStyles.align[props.align], props.style);
+    return div(merge(props, { style: styles }), props.children);
 };
 
 Grid.propTypes = {
     children: PropTypes.any,
-    grid: PropTypes.oneOf(Object.keys(gridModifiers))
+    align: PropTypes.oneOf(Object.keys(gridStyles.align)),
+    justify: PropTypes.oneOf(Object.keys(gridStyles.justify))
 };
 
-const cellModifiers = {
+Grid.defaultProps = {
+    align: 'top',
+    justify: 'left'
+};
+
+const cellStyles = {
+    base:   { boxSizing: 'border-box', flexShrink: '0' },
     fill:   { width: 0, minWidth: 0, flexGrow: 1 },
     one:    { width: 'calc(100% * 1 / 12)' },
     two:    { width: 'calc(100% * 2 / 12)' },
@@ -51,17 +61,16 @@ const cellModifiers = {
 
 export const Cell = (props) => {
 
-    const styles = Object.assign(
-        {},
-        props.style,
-        { boxSizing: 'border-box', flexShrink: '0' },
-        cellModifiers[props.cell]
-    );
+    const styles = merge(cellStyles.base, cellStyles[props.size], props.style);
 
-    return div({ style: styles }, props.children);
+    return div(merge(props, { style: styles }), props.children);
 };
 
 Cell.propTypes = {
     children: PropTypes.any,
-    cell: PropTypes.oneOf(Object.keys(cellModifiers))
+    size: PropTypes.oneOf(Object.keys(cellStyles))
+};
+
+Cell.defaultProps = {
+    size: 'fill'
 };

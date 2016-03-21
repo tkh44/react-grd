@@ -21,9 +21,12 @@
     "react": "^0.14.0 || ^15.0.0-rc.1"
   },
   "devDependencies": {
+    "highlight.js": "^9.2.0",
     "nwb": "0.8.x",
     "react": "0.14.x",
-    "react-dom": "0.14.x"
+    "react-dom": "0.14.x",
+    "react-highlight": "^0.7.0",
+    "roboto-font": "^0.1.0"
   },
   "author": "Kye Hohenberger",
   "homepage": "http://github.com/tkh44",

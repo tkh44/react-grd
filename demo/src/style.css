@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('~roboto-font/fonts/Roboto/roboto-regular-webfont.woff');
+}
+
+@keyframes cell-bg {
+    0%  {
+        background-color: rgba(67, 143, 0, 0.27);
+    }
+    100.0%  {
+        background-color: rgba(160, 178, 208, 0.12);
+    }
+}
