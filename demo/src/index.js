@@ -18,13 +18,14 @@ const styles = {
         maxWidth: 960
     },
     highlight: {
-        border: 'rgba(62, 127, 182, 0.87)',
+        border: '1px solid rgba(62, 127, 182, 0.87)',
+        borderRadius: 3,
         padding: 5,
         fontFamily: '"Roboto Mono", monospace'
     },
     control: {
-        background: '#f8f8f8',
-        color: 'rgba(62, 127, 182, 1)',
+        background: 'rgba(84, 24, 164, 1)',
+        color: 'rgb(255, 255, 255)',
         border: '1px solid rgba(62, 127, 182, 1)',
         fontSize: 16,
         height: 34,
@@ -32,11 +33,13 @@ const styles = {
         width: 180,
         borderRadius: 3,
         boxShadow: 'none',
-        margin: 8
+        margin: 8,
+        cursor: 'pointer'
     },
     grid: {
-        margin: '1rem',
-        padding: '1rem',
+        marginTop: 16,
+        marginBottom: 16,
+        padding: 8,
         minHeight: 200,
         borderWidth: 1,
         borderStyle: 'solid',
@@ -56,7 +59,9 @@ const styles = {
         width: '100%',
         maxWidth: 180,
         minWidth: 560 / 12,
-        background: '#f8f8f8'
+        background: '#f8f8f8',
+        color: 'rgba(84, 24, 164, 1)',
+        border: '1px solid rgba(84, 24, 164, 1)'
     }
 };
 
@@ -72,31 +77,31 @@ class App extends Component {
     render() {
 
         return div({ style: styles.container },
-            p(null, 'A CSS grid framework using React components with Flexbox.'),
-            p(null, 'Based on ', a({ href: 'https://github.com/1000ch/grd' }, 'grd'), ' by ', a({ href: 'https://github.com/1000ch' }, '1000ch'), '.'),
-            createElement(Highlight, { style: styles.highlight }, exampleUsageString),
+            p(null, 'React components for making working with flexbox simple.'),
+            p(null, 'Based on and using styles from ', a({ href: 'https://github.com/1000ch/grd' }, 'grd'), ' by ', a({ href: 'https://github.com/1000ch' }, '1000ch'), '.'),
+            createElement(Grid, { style: styles.highlight, align: 'middle' },
+                createElement(Highlight, null, exampleUsageString)
+            ),
             createElement(Demo)
         );
     }
 }
 
-const alignOptions = [option({ key: 'base', value: 'base' }, 'Align')]
-    .concat([
-        'top',
-        'middle',
-        'bottom',
-        'stretch',
-        'baseline'
-    ].map((opt) => option({ key: opt, value: opt }, `${opt}`)));
+const alignOptions = [
+    'top',
+    'middle',
+    'bottom',
+    'stretch',
+    'baseline'
+].map((opt) => option({ key: opt, value: opt }, `${opt}`));
 
-const justifyOptions = [option({ key: 'base', value: 'base' }, 'Justify')]
-    .concat([
-        'left',
-        'center',
-        'right',
-        'between',
-        'around'
-    ].map((opt) => option({ key: opt, value: opt }, `${opt}`)));
+const justifyOptions = [
+    'left',
+    'center',
+    'right',
+    'between',
+    'around'
+].map((opt) => option({ key: opt, value: opt }, `${opt}`));
 
 
 class Demo extends Component {
@@ -107,8 +112,8 @@ class Demo extends Component {
 
         this.state = {
             items: [],
-            gridJustifyType: undefined,
-            gridAlignType: undefined
+            gridAlignType: 'top',
+            gridJustifyType: 'left'
         };
     }
 
@@ -177,8 +182,6 @@ class Demo extends Component {
 
 
 const cellOptions = ['fill', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
-
-
 
 const DemoCell = ({ size, changeType }) => {
 
