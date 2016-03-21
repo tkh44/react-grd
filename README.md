@@ -28,9 +28,9 @@ You don't need to use the Cell component if you you are just wanting to do basic
 
 ```jsx
 <Grid align='middle' justify='center'>
-    <div>This will behave according to Grid's props<div/>
-    <div>This will behave according to Grid's props<div/>
-    <div>This will behave according to Grid's props<div/>
+    <div>This will behave according to Grid's props</div>
+    <div>This will behave according to Grid's props</div>
+    <div>This will behave according to Grid's props</div>
 </Grid>
 ```
 
