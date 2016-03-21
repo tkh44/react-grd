@@ -14,6 +14,10 @@ Based on and using styles from [grd](https://github.com/1000ch/grd) by [1000ch](
 npm install react-grd --save
 ```
 
+## Demo
+
+http://tkh44.github.io/react-grd/
+
 ## Examples
 
 ```jsx
