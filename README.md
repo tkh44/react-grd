@@ -9,7 +9,6 @@ Based on and using styles from [grd](https://github.com/1000ch/grd) by [1000ch](
 
 ## Install
 
-Installing globally gives you an `nwb` command:
 
 ```
 npm install react-grd --save
