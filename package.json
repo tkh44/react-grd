@@ -1,6 +1,6 @@
 {
   "name": "react-grd",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "React components based on (grd)[http://1000ch.github.io/grd/logo.png]",
   "main": "lib/index.js",
   "jsnext:main": "es6/index.js",
