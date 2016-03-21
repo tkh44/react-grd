@@ -1,10 +1,12 @@
-# redux-roller
+# react-grd
 
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
 [![Coveralls][coveralls-badge]][coveralls]
 
-Describe redux-roller here.
+React components based on (grd)[http://1000ch.github.io/grd/logo.png]
+
+####-- WIP --
 
 [build-badge]: https://img.shields.io/travis/user/repo/master.svg?style=flat-square
 [build]: https://travis-ci.org/user/repo

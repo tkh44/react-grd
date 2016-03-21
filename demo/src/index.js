@@ -20,7 +20,7 @@ class App extends Component {
                     code(null, 'Cell'),
                     ' and some modifiers.'
                 ),
-                li(null, strong(null, 'Flexible'), 'Only 512 bytes (Gzipped).'),
+                li(null, strong(null, 'Flexible'), 'Easy to use components'),
                 li(null, strong(null, 'Flexible'), ': Easy to use Flexbox features.')
             ),
             createElement(Demo)
