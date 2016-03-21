@@ -1,0 +1,39 @@
+{
+  "name": "react-grd",
+  "version": "1.0.0",
+  "description": "React components based on (grd)[http://1000ch.github.io/grd/logo.png]",
+  "main": "lib/index.js",
+  "jsnext:main": "es6/index.js",
+  "files": [
+    "css",
+    "es6",
+    "lib"
+  ],
+  "scripts": {
+    "build": "nwb build",
+    "clean": "nwb clean",
+    "start": "nwb serve",
+    "test": "nwb test",
+    "test:watch": "nwb test --server"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0-rc.1"
+  },
+  "devDependencies": {
+    "nwb": "0.8.x",
+    "react": "0.14.x",
+    "react-dom": "0.14.x"
+  },
+  "author": "Kye Hohenberger",
+  "homepage": "github.com/tkh44",
+  "license": "MIT",
+  "repository": "",
+  "keywords": [
+    "react-component",
+    "grd",
+    "flexbox",
+    "react",
+    "react flexbx"
+  ]
+}
