@@ -9,6 +9,10 @@ const gridStyles = {
         display: 'flex',
         flexWrap: 'wrap'
     },
+    dir: {
+        row:      { flexDirection: 'row' },
+        column:   { flexDirection: 'column' }
+    },
     align: {
         top:      { alignItems: 'flex-start' },
         middle:   { alignItems: 'center' },
@@ -27,19 +31,28 @@ const gridStyles = {
 
 export const Grid = (props) => {
 
-    const styles = merge(gridStyles.base, gridStyles.justify[props.justify], gridStyles.align[props.align], props.style);
+    const styles = merge(
+        gridStyles.base,
+        gridStyles.justify[props.justify],
+        gridStyles.align[props.align],
+        gridStyles.dir[props.dir],
+        props.style
+    );
     return div(merge(props, { style: styles }), props.children);
 };
 
 Grid.propTypes = {
     children: PropTypes.any,
     align: PropTypes.oneOf(Object.keys(gridStyles.align)),
-    justify: PropTypes.oneOf(Object.keys(gridStyles.justify))
+    justify: PropTypes.oneOf(Object.keys(gridStyles.justify)),
+    dir: PropTypes.oneOf(Object.keys(gridStyles.dir)),
+
 };
 
 Grid.defaultProps = {
     align: 'top',
-    justify: 'left'
+    justify: 'left',
+    dir: 'row'
 };
 
 const cellStyles = {

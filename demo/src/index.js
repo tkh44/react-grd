@@ -27,10 +27,10 @@ const styles = {
         background: 'rgba(84, 24, 164, 1)',
         color: 'rgb(255, 255, 255)',
         border: '1px solid rgba(62, 127, 182, 1)',
-        fontSize: 16,
+        fontSize: 14,
         height: 34,
         padding: 5,
-        width: 180,
+        width: 120,
         borderRadius: 3,
         boxShadow: 'none',
         margin: 8,
@@ -104,6 +104,11 @@ const justifyOptions = [
     'around'
 ].map((opt) => option({ key: opt, value: opt }, `${opt}`));
 
+const dirOptions = [
+    'row',
+    'column'
+].map((opt) => option({ key: opt, value: opt }, `${opt}`));
+
 
 class Demo extends Component {
 
@@ -114,13 +119,15 @@ class Demo extends Component {
         this.state = {
             items: [],
             gridAlignType: 'top',
-            gridJustifyType: 'left'
+            gridJustifyType: 'left',
+            gridDirType: 'row'
         };
     }
 
     render() {
 
-        const { gridJustifyType, gridAlignType, items } = this.state;
+        const { gridJustifyType, gridAlignType, gridDirType, items } = this.state;
+
         return div(null,
             h2('Live Demo'),
             createElement(Grid, { justify: 'center', align: 'middle' },
@@ -134,6 +141,10 @@ class Demo extends Component {
                 }, 'Remove Item'),
                 select({
                     style: styles.control,
+                    onChange: (e) => (this.setState({ gridDirType: e.target.value }))
+                }, dirOptions),
+                select({
+                    style: styles.control,
                     onChange: (e) => (this.setState({ gridAlignType: e.target.value }))
                 }, alignOptions),
                 select({
@@ -141,7 +152,12 @@ class Demo extends Component {
                     onChange: (e) => (this.setState({ gridJustifyType: e.target.value }))
                 }, justifyOptions)
             ),
-            createElement(Grid, { style: styles.grid, justify: gridJustifyType, align: gridAlignType },
+            createElement(Grid, {
+                style: styles.grid,
+                justify: gridJustifyType,
+                align: gridAlignType,
+                dir: gridDirType
+            },
                 items.map((item, i) => {
 
                     return createElement(DemoCell, {
