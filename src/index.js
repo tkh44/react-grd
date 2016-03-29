@@ -45,8 +45,7 @@ Grid.propTypes = {
     children: PropTypes.any,
     align: PropTypes.oneOf(Object.keys(gridStyles.align)),
     justify: PropTypes.oneOf(Object.keys(gridStyles.justify)),
-    dir: PropTypes.oneOf(Object.keys(gridStyles.dir)),
-
+    dir: PropTypes.oneOf(Object.keys(gridStyles.dir))
 };
 
 Grid.defaultProps = {
@@ -55,20 +54,22 @@ Grid.defaultProps = {
     dir: 'row'
 };
 
+const generateCalc = (dividend, divisor = 12) => `calc(100% * ${dividend} / ${divisor})`;
+
 const cellStyles = {
     base:   { boxSizing: 'border-box', flexShrink: '0' },
     fill:   { width: 0, minWidth: 0, flexGrow: 1 },
-    one:    { width: 'calc(100% * 1 / 12)' },
-    two:    { width: 'calc(100% * 2 / 12)' },
-    three:  { width: 'calc(100% * 3 / 12)' },
-    four:   { width: 'calc(100% * 4 / 12)' },
-    five:   { width: 'calc(100% * 5 / 12)' },
-    six:    { width: 'calc(100% * 6 / 12)' },
-    seven:  { width: 'calc(100% * 7 / 12)' },
-    eight:  { width: 'calc(100% * 8 / 12)' },
-    nine:   { width: 'calc(100% * 9 / 12)' },
-    ten:    { width: 'calc(100% * 10 / 12)' },
-    eleven: { width: 'calc(100% * 11 / 12)' },
+    one:    { width: generateCalc(1, 12) },
+    two:    { width: generateCalc(2, 12) },
+    three:  { width: generateCalc(3, 12) },
+    four:   { width: generateCalc(4, 12) },
+    five:   { width: generateCalc(5, 12) },
+    six:    { width: generateCalc(6, 12) },
+    seven:  { width: generateCalc(7, 12) },
+    eight:  { width: generateCalc(8, 12) },
+    nine:   { width: generateCalc(9, 12) },
+    ten:    { width: generateCalc(10, 12) },
+    eleven: { width: generateCalc(11, 12) },
     twelve: { width: '100%' }
 };
 
